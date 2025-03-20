@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { CatsModule } from './cats/cats.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Cat } from './cats/entity/cats.entity';
 
 @Module({
   controllers: [AppController],
@@ -17,10 +18,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: '1234',
       database: 'nest',
-      entities: [],
+      entities: [Cat],
       synchronize: true,
     }),
-    UsersModule,
+    // UsersModule,
     CatsModule,
   ],
 })
